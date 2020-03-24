@@ -12,7 +12,6 @@ namespace Snake1
 
         public VerticalLine(int yVverh, int yVniz, int x, char sym)
         {
-            List<Point> pList;
 
             pList = new List<Point>();
             for(int y = yVverh; y<= yVniz; y++)

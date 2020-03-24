@@ -11,7 +11,6 @@ namespace Snake1
 
         public HorizontalLine(int xLeft, int xRight, int y, char sym)
         {
-            List<Point> pList;
             pList = new List<Point>();
             for(int x = xLeft;x <= xRight; x++)
             {
