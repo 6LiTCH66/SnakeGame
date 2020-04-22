@@ -40,7 +40,7 @@ namespace Snake1
 
 			Params settings = new Params();
 			Sound sound = new Sound(settings.GetResourcesFolder());
-			sound.Play("music");
+			sound.Play();
 
 			Sound sound1 = new Sound(settings.GetResourcesFolder());
 

@@ -18,7 +18,7 @@ namespace Snake1
                 Directory.GetCurrentDirectory().ToString().Substring(0, ind)
                 .ToString();
 
-            resourcesFolder = binFolder + "resource\\";
+            resourcesFolder = binFolder + "resources\\";
         }
 
         public string GetResourcesFolder()

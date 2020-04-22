@@ -18,7 +18,7 @@ namespace Snake1
 
         public void Play()
         {
-            player.URL = pathToMedia + "music.wav";
+            player.URL = pathToMedia + "music.mp3";
             player.settings.volume = 30;
             player.controls.play();
             player.settings.setMode("loop", true);
@@ -26,12 +26,12 @@ namespace Snake1
 
         public void Play(string songName)
         {
-            player.URL = pathToMedia + songName + ".wav";
+            player.URL = pathToMedia + songName + ".mp3";
             player.controls.play();
         }
         public void PlayEat()
         {
-            player.URL = pathToMedia + "pop.wav";
+            player.URL = pathToMedia + "pop.mp3";
             player.settings.volume = 100;
             player.controls.play();
         }
