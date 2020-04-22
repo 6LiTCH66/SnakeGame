@@ -6,14 +6,14 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Media;
 using System.IO;
-
+using WMPLib;
 namespace Snake1
 {
     class Program
     {
         static void Main(string[] args)
         {
-			SoundPlayer player = new SoundPlayer();
+			/*SoundPlayer player = new SoundPlayer();
 			player.SoundLocation = AppDomain.CurrentDomain.BaseDirectory + "music.wav";
 			player.Play();
 
@@ -22,7 +22,7 @@ namespace Snake1
 
 			SoundPlayer player2 = new SoundPlayer();
 			player2.SoundLocation = AppDomain.CurrentDomain.BaseDirectory + "died.wav";
-			//player2.Play();
+			//player2.Play();*/
 
 
 			Console.SetWindowSize(80, 25);
@@ -38,35 +38,24 @@ namespace Snake1
 			Point food = foodCreator.CreateFood();
 			food.Draw();
 
+			Params settings = new Params();
+			Sound sound = new Sound(settings.GetResourcesFolder());
+			sound.Play("music");
+
+			Sound sound1 = new Sound(settings.GetResourcesFolder());
+
 			while (true)
 			{
 				if (walls.IsHit(snake) || snake.IsHitTail())
 				{
-					player2.Play();
-					try
-					{ 
-						Console.Write("Ente youe name:");
-						String nimi = (Console.ReadLine());
-						if (nimi.Length >= 3)
-						{
-							StreamWriter to_file = new StreamWriter("Answer.txt", true);
-							to_file.WriteLine(nimi);
-							to_file.Close();
-						}
-					}
-					catch(Exception)
-					{
-						Console.WriteLine("Try again pleas!");
-					}
-
 					break;
-
 				}
 				if (snake.Eat(food))
 				{
 					food = foodCreator.CreateFood();
 					food.Draw();
-					player1.Play();
+					sound1.PlayEat();
+					//player1.Play();
 				}
 				else
 				{
