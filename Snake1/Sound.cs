@@ -24,9 +24,10 @@ namespace Snake1
             player.settings.setMode("loop", true);
         }
 
-        public void Play(string songName)
+        public void PlayDied()
         {
-            player.URL = pathToMedia + songName + ".mp3";
+            player.URL = pathToMedia + "died.mp3";
+            player.settings.volume = 100;
             player.controls.play();
         }
         public void PlayEat()

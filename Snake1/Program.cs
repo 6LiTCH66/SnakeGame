@@ -44,18 +44,39 @@ namespace Snake1
 
 			Sound sound1 = new Sound(settings.GetResourcesFolder());
 
+			Sound sound2 = new Sound(settings.GetResourcesFolder());
+
+			int i = 0;
+
 			while (true)
 			{
+
 				if (walls.IsHit(snake) || snake.IsHitTail())
 				{
+					sound2.PlayDied();
+
+					Console.Write("Ente youe name:");
+					String nimi = (Console.ReadLine());
+
+					Console.WriteLine(nimi + " scored " + i + " Points");
+					
+					string answer = nimi + ": " + i + " Points";
+
+					StreamWriter to_file = new StreamWriter(@"C:\Users\Game\source\repos\Snake1\Snake1\resources\results.txt", true);
+					to_file.WriteLine(answer);
+					to_file.Close();
+
 					break;
+
 				}
 				if (snake.Eat(food))
 				{
+					i++;
+
 					food = foodCreator.CreateFood();
 					food.Draw();
 					sound1.PlayEat();
-					//player1.Play();
+
 				}
 				else
 				{
