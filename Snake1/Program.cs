@@ -36,6 +36,7 @@ namespace Snake1
 
 			int i = 0;
 
+
 			while (true)
 			{
 
