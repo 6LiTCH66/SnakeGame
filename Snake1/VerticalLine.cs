@@ -8,8 +8,6 @@ namespace Snake1
 {
     class VerticalLine : Figure
     {
-        
-
         public VerticalLine(int yVverh, int yVniz, int x, char sym)
         {
 

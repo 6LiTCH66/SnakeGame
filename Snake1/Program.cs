@@ -13,18 +13,6 @@ namespace Snake1
     {
         static void Main(string[] args)
         {
-			/*SoundPlayer player = new SoundPlayer();
-			player.SoundLocation = AppDomain.CurrentDomain.BaseDirectory + "music.wav";
-			player.Play();
-
-			SoundPlayer player1 = new SoundPlayer();
-			player1.SoundLocation = AppDomain.CurrentDomain.BaseDirectory + "pop.wav";
-
-			SoundPlayer player2 = new SoundPlayer();
-			player2.SoundLocation = AppDomain.CurrentDomain.BaseDirectory + "died.wav";
-			//player2.Play();*/
-
-
 			Console.SetWindowSize(80, 25);
 
 			Walls walls = new Walls(80, 25);
@@ -53,7 +41,7 @@ namespace Snake1
 
 				if (walls.IsHit(snake) || snake.IsHitTail())
 				{
-					sound2.PlayDied();
+					sound2.PlayDied(); 
 
 					Console.Write("Ente youe name:");
 					String nimi = (Console.ReadLine());
