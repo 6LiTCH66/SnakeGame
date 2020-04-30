@@ -7,18 +7,20 @@ using System.Threading.Tasks;
 using System.Media;
 using System.IO;
 using WMPLib;
+
 namespace Snake1
 {
     class Program
     {
         static void Main(string[] args)
         {
-			Console.SetWindowSize(80, 25);
+			Console.SetWindowSize(80, 30);
 
 			Walls walls = new Walls(80, 25);
 			walls.Draw();
 
 			Point p = new Point(4, 5, '*');
+			
 			Snakee snake = new Snakee(p, 4, Direction.RIGHT);
 			snake.Draw();
 
@@ -36,15 +38,16 @@ namespace Snake1
 
 			int i = 0;
 
-
 			while (true)
 			{
 
 				if (walls.IsHit(snake) || snake.IsHitTail())
 				{
+					Gameover gameover = new Gameover();
+					gameover.Game();
 					sound2.PlayDied(); 
 
-					Console.Write("Ente youe name:");
+					Console.Write("Ente your name: ");
 					String nimi = (Console.ReadLine());
 
 					Console.WriteLine(nimi + " scored " + i + " Points");
@@ -54,10 +57,18 @@ namespace Snake1
 					StreamWriter to_file = new StreamWriter(@"C:\Users\Game\source\repos\Snake1\Snake1\resources\results.txt", true);
 					to_file.WriteLine(answer);
 					to_file.Close();
+					Console.ForegroundColor = ConsoleColor.White;
 
+					StreamReader from_file = new StreamReader(@"C:\Users\Game\source\repos\Snake1\Snake1\resources\results.txt");
+					string text = from_file.ReadToEnd();
+					Console.WriteLine(text);
+					from_file.Close();
 					break;
 
 				}
+				Score score = new Score();
+				score.Scoree(i);
+
 				if (snake.Eat(food))
 				{
 					i++;
