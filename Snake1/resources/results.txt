@@ -1,8 +1,5 @@
-Ilja: 8 Points
-Ilja: 0 Points
-Andrej: 3 Points
-Andrej: 13 Points
-
-ilja: 1 Points
-: 0 Points
-Ilja: 5 Points
+ilja: 0 Points
+test: 1 Points
+ilja: 0 Points
+testilja: 0 Points
+nikita: 2 Points

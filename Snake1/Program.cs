@@ -54,15 +54,31 @@ namespace Snake1
 					
 					string answer = nimi + ": " + i + " Points";
 
-					StreamWriter to_file = new StreamWriter(@"C:\Users\Game\source\repos\Snake1\Snake1\resources\results.txt", true);
-					to_file.WriteLine(answer);
-					to_file.Close();
+
+					// string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+
+					// string resourcesDirectory = Path.GetFullPath(Path.Combine(baseDirectory, @"..\..\resources"));
+
+
+					string filePath = Path.Combine(settings.GetResourcesFolder(), "results.txt");
+
+					using (StreamWriter to_file = new StreamWriter(filePath, true))
+					{
+
+						to_file.WriteLine(answer);
+					}
+
+
 					Console.ForegroundColor = ConsoleColor.White;
 
-					StreamReader from_file = new StreamReader(@"C:\Users\Game\source\repos\Snake1\Snake1\resources\results.txt");
-					string text = from_file.ReadToEnd();
-					Console.WriteLine(text);
-					from_file.Close();
+					using (StreamReader from_file = new StreamReader(filePath))
+					{
+						string text = from_file.ReadToEnd();
+						Console.WriteLine(text);
+					}
+
+					Console.ReadLine();
+
 					break;
 
 				}
